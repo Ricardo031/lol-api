@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../svg/puñito.svg" type="image/x-icon">
     <title>Personajes de LOL</title>
 </head>
 
@@ -13,7 +14,7 @@
 
     <nav class="navbar">
         <nav class="nav__container">
-            <img src="../img/logoLOL sin fondo.png" alt="lol" class="nav__logo" height="48">
+            <img src="../img/logoLOL sin fondo.png" alt="lol" height="48">
         </nav>
     </nav>
 
@@ -29,24 +30,34 @@
             <h1 class="campeon__name" id="name"></h1>
         </figure>
 
-        <div class="tabla__campeon">
-            <h1></h1>
-            <div class="datos__campeon">
-                <form action="">
-                    <input type="text" class="" id="" placeholder="Campeon">
-                    <button type="button" class="btn__buscar">Buscar</button>
-                </form>
+        <div class="tabla__datos">
+            <h1 class="tabla__title">Ingresa tu personaje</h1>
+            <form class="buscador">
+                <div class="input-text">
+                    <figure class="icon-riot">
+                        <img src="../svg/puñito con fondo.svg" alt="riot game" class="icon__p">
+                    </figure>
+                    <input type="text" class="input__buscar" id="inputCampeon" placeholder="Campeon">
+                </div>
+                <button type="button" class="btn__buscar">Buscar</button>
+            </form>
+            <!--* contenido de tabla -->
+            <div class="estadisticas">
             </div>
-
         </div>
+        <!-- Rol Principal -->
+         <div class="rol"></div>
     </section>
 
     <footer class="footer-main">
         <img src="../svg/bxl-youtube.svg" alt="youtube" class="footer__icon">
-        <a target="_blank" href="https://icons8.com/icon/jzcbrbm05Osk/riot-games">Riot Games</a> icono de <a target="_blank" href="https://icons8.com">Icons8</a>
+        <tr></tr>
+        <a target="_blank" href="https://icons8.com/icon/jzcbrbm05Osk/riot-games">Riot Games- </a> icono de <a
+            target="_blank" href="https://icons8.com"> -Icons8</a>
     </footer>
 
 </body>
-<script src="main.js"></script>
+<script src="main.js" type="module"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </html>

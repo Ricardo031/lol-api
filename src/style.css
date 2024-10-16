@@ -28,7 +28,7 @@ body {
 .nav__container {
     display: flex;
     width: 100%;
-    height: 40px;
+    height: 0;
     margin-bottom: 5px;
     align-items: flex-start;
 }
@@ -37,7 +37,6 @@ body {
 .descripcion {
     display: flex;
     height: auto;
-    padding: 5px 10px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -48,11 +47,11 @@ body {
 
 .title {
     font-family: "BeaufortforLOL";
-    font-size: 50px;
+    font-size: 46px;
     font-style: italic;
     font-weight: 800;
     padding: 0px 4px;
-    background: linear-gradient(180deg, #C89B3C 0%, #785A28 100%);
+    background: linear-gradient(180deg, #C89B3C 0%, #9b6d1f 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -74,27 +73,141 @@ body {
     font-size: 26px;
 }
 
+/*todo: Container  */
 .main-container {
     display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
     flex-direction: row;
+    gap: 30px;
     padding: 0px 6px;
+    margin-top: 20px;
     align-items: flex-start;
 }
 
+/** mostrar personaje  */
 .visualizacion {
+    background-color: #005A82;
     display: flex;
-    width: 500px;
+    width: 50%;
     height: 500px;
     flex-direction: column;
     align-items: center;
     gap: 4px;
+    border-radius: 8px;
 }
 
-.datos {
+/** Imagen del personaje */
+#campeon_img {
+    max-width: 100%;
+    max-height: 80%;
+    border-radius: 8px 8px 0 0;
+}
+
+/** tabla de datos  */
+.tabla__datos {
     display: flex;
-    width: auto;
+    width: 100%;
+    height: 500px;
     flex-direction: column;
-    align-items: center;
-    gap: 30px;
+    align-items: flex-start;
+    gap: 10px;
     flex: 1 0 0;
+}
+
+.tabla__title {
+    margin: 0;
+    font-family: league;
+    font-style: italic;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.buscador {
+    display: flex;
+    width: 100%;
+}
+
+.input-text {
+    display: flex;
+    width: 50%;
+}
+
+.icon-riot {
+    background-color: #D32F2F;
+    border-radius: 4px 0 0 4px;
+}
+
+.icon__p {
+    width: 30px;
+}
+
+.input__buscar {
+    font-family: "League Spartan", sans-serif;
+    font-size: 16px;
+    width: 100%;
+    padding: 8px 4px;
+    align-items: center;
+    border: none;
+    outline: none;
+    border-radius: 0 4px 4px 0;
+}
+
+.btn__buscar {
+    font-family: BeaufortforLOL;
+    font-style: italic;
+    margin-left: 6px;
+    background: #0AC8B9;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    transition: background .3s ease-in;
+}
+
+.btn__buscar:hover {
+    cursor: pointer;
+    background:#005A82
+}
+
+/** tabla de contenido  */
+.estadisticas {
+    
+    background-color: white;
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: 0 0 4px 0 rgba(73, 13, 75, 0.4);
+}
+
+.table {
+    color: black;
+    width: 100%;
+    padding: 10px;
+    gap: 2px;
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+/*todo: footer */
+.footer-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    right: 6px;
+}
+
+.footer__icon {
+    color: #fa1616;
 }
