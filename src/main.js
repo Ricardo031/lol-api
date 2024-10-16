@@ -2,52 +2,68 @@ import {
     getCampeon
 } from './js/api.js';
 
-obtenerCampeon();
+//todo: Evento boton
+const btnBuscar = document.getElementById('btn-buscar');
+const inputBuscador = document.getElementById('inputCampeon'); // Obtener el input
 
-function obtenerCampeon() {
-    let random = numeroAleatorio(160) + 1; // Genera un número aleatorio para seleccionar un campeón
+btnBuscar.addEventListener('click', buscarCampeon);
+inputBuscador.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') { // Verifica si la tecla presionada es Enter
+        event.preventDefault(); // Previene el reinicio de la página
+        buscarCampeon();
+    }
+});
 
-    let llamarcampeon = getCampeon(); //* Llama a la API
-    llamarcampeon
+function buscarCampeon(){
+    //* Obtener el valor ingresado por el usuario y eliminar espacios
+    let nombre = inputBuscador.value.trim()
+
+    if (!nombre) {
+        alert("Por favor, introduce un nombre de campeón."); 
+        return;
+    }
+
+    //* Llama a la API para obtener los campeones
+   getCampeon()
         .then((res) => res.json())
         .then((res2) => {
-            console.log(res2); // Imprime la respuesta de la API para ver toda la información
+            const campeones = res2.data;
 
-            const campeones = res2.data; // Obtiene los datos de los campeones
-            const selectCampeon = Object.keys(campeones)[random]; // Selecciona un campeón aleatorio
-            const campeon = campeones[selectCampeon]; // Accede al objeto del campeón seleccionado
-            console.log(campeon);
+            //* Busca el campeón por nombre(en este caso id porque son lo mismo)
+            const campeon = Object.values(campeones).find(c => c.id.toLowerCase() === nombre.toLowerCase());
+
+            if (!campeon) {
+                alert("Campeón no encontrado."); 
+                return;
+            }
 
             //* Llenar la información del campeón
-            llenarInformacion(campeon.id, campeon.title, campeon.image, campeon.stats, campeon.tags, campeon.partype); //el id es lo mismo que el name
-        });
-}
+            llenarInformacion(campeon.id, campeon.title, campeon.image, campeon.stats, campeon.tags, campeon.partype);
+        })
+        .catch(error => console.error("Error al obtener datos del campeón:", error));
+};
 
-//todo: Función para generar un número aleatorio
-function numeroAleatorio(max) {
-    return Math.floor(Math.random() * max);
-}
 
 //todo: Llenar información del campeón
 function llenarInformacion(name, title, image, stats, tags, partype) {
     let input = document.getElementById('inputCampeon');
     input.value = name; //* Establece el valor del input al nombre del campeón
     let div = $('.estadisticas');
-    div.empty(); 
+    div.empty();
 
     // Crear la primera tabla (estadísticas)
     let tabla = `<table class="table"> <tr><th>Estadística</th><th>Valor</th></tr>`;
 
     const estadisticasDeseadas = [
-        'hp', 
-        'movespeed', 
-        'armor', 
-        'spellblock', 
-        'attackdamage', 
+        'hp',
+        'movespeed',
+        'armor',
+        'spellblock',
+        'attackdamage',
         'attackspeed'
     ];
 
-    for (let stat of estadisticasDeseadas) { 
+    for (let stat of estadisticasDeseadas) {
         tabla += `<tr>`;
         tabla += `<td>${stat}</td>`;
         tabla += `<td>${stats[stat]}</td>`;
@@ -67,16 +83,17 @@ function llenarInformacion(name, title, image, stats, tags, partype) {
     let tabla2 = `<table class="table"> <tr><th>Rol</th></tr>`; // Encabezado de la tabla
 
     // Iterar sobre el array de tags y crear una fila por cada uno
-    for (let tag of tags) { 
+    for (let tag of tags) {
         tabla2 += `<tr>`;
         tabla2 += `<td>${tag}</td>`; // Mostrar cada tag (como "Fighter", "tank" y etc)
         tabla2 += `</tr>`;
     }
 
     tabla2 += `</table>`;
-    div.append(tabla2); 
+    div.append(tabla2);
 
+    //todo: llenar visualizacion
     let imagen = document.getElementById('campeon_img')
-    const splashUrl =`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${name}_0.jpg`;
+    const splashUrl = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${name}_0.jpg`;
     imagen.src = splashUrl;
 }
