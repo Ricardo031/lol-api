@@ -79,12 +79,12 @@ function llenarInformacion(name, title, image, stats, tags, partype) {
     tabla += `</table>`;
     div.append(tabla); // Agrega la primera tabla al div de estadísticas
 
-    // Crear la segunda tabla (tags)
-    let tabla2 = `<table class="table"> <tr><th>Rol</th></tr>`; // Encabezado de la tabla
+    //* Crear la segunda tabla (tags)
+    let tabla2 = `<table class="tablerol"> <tr><th class="titlerol">Rol</th></tr>`; // Encabezado de la tabla
 
-    // Iterar sobre el array de tags y crear una fila por cada uno
+    //* Iterar sobre el array de tags y crear una fila por cada uno
     for (let tag of tags) {
-        tabla2 += `<tr>`;
+        tabla2 += `<tr class="">`;
         tabla2 += `<td>${tag}</td>`; // Mostrar cada tag (como "Fighter", "tank" y etc)
         tabla2 += `</tr>`;
     }
@@ -96,4 +96,12 @@ function llenarInformacion(name, title, image, stats, tags, partype) {
     let imagen = document.getElementById('campeon_img')
     const splashUrl = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${name}_0.jpg`;
     imagen.src = splashUrl;
+
+    //todo: Titulos y nombres del campeon
+    let tituloChamp= document.getElementById('title')
+    let nameChamps = document.getElementById('name')
+
+    tituloChamp.textContent = title
+    
+    nameChamps.textContent = input.value
 }
