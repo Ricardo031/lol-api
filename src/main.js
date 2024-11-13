@@ -47,11 +47,11 @@ function buscarCampeon(){
 //todo: Llenar información del campeón
 function llenarInformacion(name, title, image, stats, tags, partype) {
     let input = document.getElementById('inputCampeon');
-    input.value = name; //* Establece el valor del input al nombre del campeón
+    input.value = name; 
     let div = $('.estadisticas');
     div.empty();
 
-    // Crear la primera tabla (estadísticas)
+    //* Crear la primera tabla (estadísticas)
     let tabla = `<table class="table"> <tr><th>Estadística</th><th>Valor</th></tr>`;
 
     const estadisticasDeseadas = [
@@ -70,7 +70,7 @@ function llenarInformacion(name, title, image, stats, tags, partype) {
         tabla += `</tr>`;
     }
 
-    // Agregar la parte "partype" directamente, ya que es un valor string
+    //* Agregar la parte "partype" directamente, ya que es un valor string
     tabla += `<tr>`;
     tabla += `<td>Partype</td>`;
     tabla += `<td>${partype}</td>`; // Simplemente mostrar el valor de partype
