@@ -78,7 +78,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 30px;
-    padding: 0px 10px;
+    padding: 0px;
     margin-top: 20px;
     align-items: flex-start;
 }
@@ -141,7 +141,7 @@ body {
 .buscador {
     display: flex;
     justify-content: center;
-    width: 50%;
+    width: 400px;
 }
 
 .input-text {
@@ -219,11 +219,6 @@ body {
 }
 
 
-
-
-
-
-
 /*todo: footer */
 .footer-main {
     display: flex;
@@ -237,4 +232,75 @@ body {
 
 .footer__icon {
     color: #fa1616;
+}
+
+@media (max-width: 768px) {
+
+    .descripcion {
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    .title {
+        font-size: 38px;
+        text-align: center;
+    }
+
+    .main-container {
+        gap: 20px;
+        flex-direction: column-reverse;
+    }
+
+    .estadisticas {
+        width: 58%;
+    }
+
+    .tabla__title {
+        font-size: 20px;
+    }
+
+    .buscador {
+        width: 400px;
+    }
+
+    .visualizacion {
+        width: auto;
+        padding: 0 24px;
+        height: auto;
+    }
+
+    #campeon_img {
+        height: 60%;
+    }
+
+    .campeon__title {
+        text-align: center;
+        font-size: 28px;
+    }
+
+    .footer-main {
+        position: initial;
+    }
+}
+
+@media (max-width: 425px) {
+
+    .estadisticas {
+        width: 70%;
+    }
+
+    .buscador {
+        width: 300px;
+    }
+    .title {
+        font-size: 30px;
+    }
+
+    .visualizacion {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 768px) {
+
 }
